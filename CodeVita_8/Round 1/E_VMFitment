@@ -1,0 +1,130 @@
+VM Fitment
+
+Problem Description
+You are a System Administrator and have access to unlimited number of servers with same amount of CPU (#of cores) and Memory (GB).
+
+On these servers, you need pack number of applications K, deployed as VMs such that the total cost of ownership without affecting the application performance, is the least. Application resource requirements are provided in the following format
+
+* CPU Utilization in percentage for a single core system
+
+* Memory Allocated in MB
+
+You need to pack the applications on the server in such a manner that its resource requirement is fully met on that server i.e. you cannot deploy the same application across different servers.
+
+Each server that hosts the application has a constant initial cost in terms of
+
+* Reserved CPU in percentage for a single core system
+
+* Reserved Memory in MB
+
+The cost of the server can be calculated from the following equation:
+
+Cost per Hour = constant initial cost + ( 1.5/10000 )( cpu_utilization_os_server ^ 3) + 0.5(mem_utilization_of_server)
+
+where 0 <= cpu_utilization_os_server, mem_utilization_of_server <= 100
+
+and constant initial cost = 100
+
+Your task is to find the minimum cost per hour for running the applications.
+
+Constraints
+1 <= number of cores <= 10
+
+1 <= memory in GB <= 10
+
+0 <= number of VMs <= 100
+
+1 GB = 1024 MB
+
+Input Format
+First line provides the number of cores, C, in each server
+
+Second line provides the amount of memory, M, in gigabytes in each server
+
+Third line provides number of applications, K, to be packed on servers
+
+Next, K * 2 lines consists of the following information, on one line each
+
+CPU requirement in percentage of single core for current application
+
+Memory requirement in megabytes for current application
+
+Last 2 lines consists of the following information
+
+Reserved CPU in percentage of a single core system
+
+Reserved Memory in MB
+
+Output
+Least cost per hour for hosting all applications, rounded up to the next integer
+
+Test Case
+
+Explanation
+Example 1
+
+Input
+
+2
+
+1
+
+4
+
+29.72
+
+366
+
+25.53
+
+163
+
+28.98
+
+206
+
+26.64
+
+506
+
+11.21
+
+176
+
+Output
+
+289
+
+Example 2
+
+Input
+
+3
+
+1
+
+4
+
+26.66
+
+451
+
+25.8
+
+294
+
+26.81
+
+207
+
+26.77
+
+192
+
+8.03
+
+184
+
+Output
+
+277

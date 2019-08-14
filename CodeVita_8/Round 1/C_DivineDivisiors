@@ -1,0 +1,33 @@
+Divine Divisors
+
+
+Problem Description
+Given a number 'n' , find all the possible divisors and print them in increasing order.
+
+Constraints
+1 <= T <= 15.
+
+1 <= N <= 10^15.
+
+Input Format
+First line contains a single integer T denoting the number of test cases.
+
+Each test case consists of a line containing an integer N.
+
+Output
+For each test case print a line containing all the divisors in increasing order separated by space.
+
+Test Case
+
+Explanation
+Example 1
+
+Input
+
+1
+
+10
+
+Output
+
+1 2 5 10
