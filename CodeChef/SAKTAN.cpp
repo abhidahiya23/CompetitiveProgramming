@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+int matrix[10000][10000];
+
 int main(){
 	
 	int t;
@@ -13,7 +15,7 @@ int main(){
 
 
 	// Matrix with all elements intialized to zero
-	int matrix[r][c],rowno[q],colno[q];
+	int rowno[q],colno[q];
 
 	for (i = 1; i <= r; i++)
 		for (j = 1; j <= c; j++)
@@ -29,11 +31,11 @@ int main(){
 			matrix[j][colno[i]]++;
 	}
 
-	//for (i = 1; i <= r; i++){
-	//	for (j = 1; j <= c; j++)
-	//       if (matrix[i][j]%2 !=0)
-	//            count++;
-	//}
+	for (i = 1; i <= r; i++){
+		for (j = 1; j <= c; j++)
+	        if (matrix[i][j]%2 !=0)
+	            count++;
+	}
     
     cout<<count<<endl;
 

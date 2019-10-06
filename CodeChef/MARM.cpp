@@ -1,22 +1,30 @@
 #include<iostream>
 using namespace std;
 
+long long int arr[10000];
+
 int main(){
 
-	int t;
+	long long int t;
 	cin>>t;
 
 	while(t--){
-	int n,k;
+	long long int n,k;
 	cin>>n>>k;
 
-	int arr[n];
-	for (int i=0;i<n;i++)
+	//int arr[n];
+	for (long long int i=0;i<n;i++)
 		cin>>arr[i];
 
-	int index_b,index_a,a,b;
+	long long int index_b,index_a,a,b;
+    
+    if(k/(n*3)>0){
+	if((n%2)  !=0 )
+		arr[n/2]=0;}
+	
+	k = k%(n*3);
 
-	for( int i=0;i<k;i++){
+	for(long long int i=0;i<k;i++){
 
 		if(i<n){
 			index_a = i;
@@ -33,7 +41,7 @@ int main(){
 		arr[index_a] = a^b;
 	}
 
-	for (int i=0;i<n;i++)
+	for (long long int i=0;i<n;i++)
 		cout<<arr[i]<<" ";
 
 	cout<<endl;
