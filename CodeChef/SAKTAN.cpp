@@ -1,7 +1,9 @@
 #include<iostream>
+#include<stdio.h>
+
 using namespace std;
 
-int matrix[10000][10000];
+//int rowArray[10000]={ 0 }, colArray[10000]={ 0 };
 
 int main(){
 	
@@ -10,35 +12,32 @@ int main(){
 	
 	while(t--){
 	    
-	int r,c,q,i,j,count=0;
-	cin>>r>>c>>q;
-
-
-	// Matrix with all elements intialized to zero
-	int rowno[q],colno[q];
-
-	for (i = 1; i <= r; i++)
-		for (j = 1; j <= c; j++)
-			matrix[i][j]=0;
-
-	for(i=1;i<=q;i++)
-		cin>>rowno[i]>>colno[i];
-
+	int r,c,q,i,j,count=0,rowno,colno;
+	scanf("%d%d%d",&r,&c,&q);
+    
+    int rowArray[100000]={ 0 }, colArray[100000]={ 0 };
+    
 	for(i=1;i<=q;i++){
-		for (j = 1; j <= c; j++)
-			matrix[rowno[i]][j]++;
-		for (j = 1; j <= r; j++)
-			matrix[j][colno[i]]++;
+	    scanf("%d%d",&rowno,&colno);
+		rowArray[rowno]++;
+		colArray[colno]++;
 	}
-
+	
+    if(r<=c){
 	for (i = 1; i <= r; i++){
 		for (j = 1; j <= c; j++)
-	        if (matrix[i][j]%2 !=0)
+	        if ((rowArray[i]+colArray[j])%2 !=0)
 	            count++;
-	}
+	}}
+    else{
+    for (i = 1; i <= c; i++){
+		for (j = 1; j <= r; j++)
+	        if ((rowArray[j]+colArray[i])%2 != 0)
+	            count++;
+        
+    }}
     
-    cout<<count<<endl;
-
+    printf("%d\n",count);
 	}
 	return 0;
 }
