@@ -3,8 +3,6 @@
 
 using namespace std;
 
-//int rowArray[10000]={ 0 }, colArray[10000]={ 0 };
-
 int main(){
 	
 	int t;
@@ -12,10 +10,10 @@ int main(){
 	
 	while(t--){
 	    
-	int r,c,q,i,j,count=0,rowno,colno;
+	long long r,c,q,i,j,count=0,rowno,colno;
 	scanf("%d%d%d",&r,&c,&q);
     
-    int rowArray[100000]={ 0 }, colArray[100000]={ 0 };
+    long long rowArray[r] = {0}, colArray[c]= {0};
     
 	for(i=1;i<=q;i++){
 	    scanf("%d%d",&rowno,&colno);
@@ -23,19 +21,18 @@ int main(){
 		colArray[colno]++;
 	}
 	
-    if(r<=c){
+    long long rc=0,cc=0;
+    // rc = even number of rows , cc = odd number of columns
 	for (i = 1; i <= r; i++){
-		for (j = 1; j <= c; j++)
-	        if ((rowArray[i]+colArray[j])%2 !=0)
-	            count++;
-	}}
-    else{
-    for (i = 1; i <= c; i++){
-		for (j = 1; j <= r; j++)
-	        if ((rowArray[j]+colArray[i])%2 != 0)
-	            count++;
-        
-    }}
+	    if ((rowArray[i]%2 == 0))
+	        rc++;
+	    }
+	    
+	for (i = 1; i <= c; i++){
+	    if((colArray[i]%2 !=0))
+	        cc++;
+	    }
+	count = rc*(cc) + (c-cc)*(r-rc);
     
     printf("%d\n",count);
 	}
